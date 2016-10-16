@@ -41,8 +41,9 @@ namespace live.asp.net.ViewModels
                 // reference: http://stackoverflow.com/a/21653600/22941
                 var from = UrlEncoder.Default.Encode(NextShowDateUtc?.ToString(_dateTimeFormat));
                 var to = UrlEncoder.Default.Encode(NextShowDateUtc?.AddMinutes(30).ToString(_dateTimeFormat));
+                var baseUri = "https://www.google.com/calendar/render";
 
-                return $"https://www.google.com/calendar/render?action=TEMPLATE&text={_googleCalendarText}&dates={from}/{to}&details={_googleCalendarLocation}&location={_googleCalendarLocation}&sf=true&output=xml";
+                return $"{baseUri}?action=TEMPLATE&text={_googleCalendarText}&dates={from}/{to}&details={_googleCalendarLocation}&location={_googleCalendarLocation}&sf=true&output=xml";
             }
         }
     }
